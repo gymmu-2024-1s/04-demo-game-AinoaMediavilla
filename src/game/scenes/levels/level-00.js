@@ -36,5 +36,13 @@ export default class Level00 extends Phaser.Scene {
 
     // Erstellt den "Obstacles" Layer. Hier kann der Spieler nicht durchlaufen.
     map.createLayer("Obstacles", tiles, 0, 0)
+    // Erstelle einen Cursor um auf die Eingaben des Spielers zu reagieren.
+    this.cursor = this.input.keyboard.createCursorKeys()
+
+    // Erstelle das Spielerobjekt als rotes Rechteck.
+    this.player = this.add.rectangle(3 * 32, 4 * 32, 32, 32, 0xff0000)
+
+    // Stelle die Kamera so ein, dass sie dem Spieler folgt.
+    this.cameras.main.startFollow(this.player)
   }
 }
